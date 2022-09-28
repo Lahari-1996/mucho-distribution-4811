@@ -1,0 +1,14 @@
+mysql> create table Employee(empId int primary key auto_increment,EmpName varchar(30) not null,empUserId varchar(30) not null,empPassword varchar(20) not null,ecomplainId int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc Employee;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| empId       | int         | NO   | PRI | NULL    | auto_increment |
+| EmpName     | varchar(30) | NO   |     | NULL    |                |
+| empUserId   | varchar(30) | NO   |     | NULL    |                |
+| empPassword | varchar(20) | NO   |     | NULL    |                |
+| ecomplainId | int         | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.03 sec)
