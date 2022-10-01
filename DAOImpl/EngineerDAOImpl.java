@@ -3,6 +3,7 @@ package DAOImpl;
 import BeanClass.EngineerComplainDTO;
 import DAO.EngineerDao;
 import Exceptions.ComplainException;
+import Exceptions.EngineerException;
 import Utility.DBUtil;
 
 import java.sql.Connection;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class EngineerDAOImpl implements EngineerDao {
     @Override
-    public String loginEngineer(String userName, String password) {
+    public String loginEngineer(String userName, String password) throws EngineerException {
         String msg="Login Failed";
 
 
@@ -30,7 +31,7 @@ public class EngineerDAOImpl implements EngineerDao {
                 msg="Welcome "+eng;
             }
             else {
-                msg="Wrong Username/Password";
+                throw new EngineerException("Wrong userid/password");
             }
 
 
@@ -55,9 +56,10 @@ public class EngineerDAOImpl implements EngineerDao {
                 String engName=rs.getString("ENName");
                 String engCat=rs.getString("ENCategory");
                 int compId= rs.getInt("EComplainId");
+                String compName=rs.getString("CName");
                 String compStatus=rs.getNString("ComplainStatus");
 
-                EngineerComplainDTO ed=new EngineerComplainDTO(engId,engName,engCat,compId,compStatus);
+                EngineerComplainDTO ed=new EngineerComplainDTO(engId,engName,engCat,compId,compName,compStatus);
                 ecd.add(ed);
             }
 
@@ -69,11 +71,12 @@ public class EngineerDAOImpl implements EngineerDao {
     }
 
     @Override
-    public String updateStatus(int ComplainId) {
+    public String updateStatus(int ComplainId,String sts) {
         String msg="Nothing to update";
         try(Connection con=DBUtil.provideConnection()) {
-            PreparedStatement ps=con.prepareStatement("Update EngineerComplainDTO set ComplainStatus='solved' where ComplainId=?");
-            ps.setInt(1,ComplainId);
+            PreparedStatement ps=con.prepareStatement("Update EngineerComplainDTO set ComplainStatus=? where EComplainId=?");
+            ps.setString(1,sts);
+            ps.setInt(2,ComplainId);
 
             int ans=ps.executeUpdate();
             if(ans>0)
@@ -101,9 +104,10 @@ public class EngineerDAOImpl implements EngineerDao {
                 String engName=rs.getString("ENName");
                 String engCat=rs.getString("ENCategory");
                 int compId= rs.getInt("EComplainId");
+                String compName=rs.getString("CName");
                 String compStatus=rs.getNString("ComplainStatus");
 
-                EngineerComplainDTO ed=new EngineerComplainDTO(engId,engName,engCat,compId,compStatus);
+                EngineerComplainDTO ed=new EngineerComplainDTO(engId,engName,engCat,compId,compName,compStatus);
                 ecd.add(ed);
             }
 

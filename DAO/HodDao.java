@@ -15,5 +15,5 @@ public interface HodDao {
     public List<Engineer>getRegisteredEngineers() throws EngineerException;
     public String removeEngineers(int engId);
     public List<Complain>getAllRaisedComplain() throws ComplainException;
-    public String assignProblem(int engId,String engName,String engCat,int complainId,String complainStatus);
+    public String assignProblem(int engId,String engName,String engCat,int complainId,String complName,String complainStatus);
 }

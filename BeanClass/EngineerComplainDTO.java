@@ -5,18 +5,21 @@ public class EngineerComplainDTO {
     private String ENName;
     private String ENCategory;
     private int EComplainId;
+
+    private String ECName;
     private String ComplainStatus;
 
     public EngineerComplainDTO() {
 
     }
 
-    public EngineerComplainDTO(int ENId, String ENName, String ENCategory, int EComplainId, String complainStatus) {
+    public EngineerComplainDTO(int ENId, String ENName, String ENCategory, int EComplainId, String ECName, String complainStatus) {
         this.ENId = ENId;
         this.ENName = ENName;
         this.ENCategory = ENCategory;
         this.EComplainId = EComplainId;
-        ComplainStatus = complainStatus;
+        this.ECName = ECName;
+        this.ComplainStatus = complainStatus;
     }
 
     public int getENId() {
@@ -51,6 +54,14 @@ public class EngineerComplainDTO {
         this.EComplainId = EComplainId;
     }
 
+    public String getECName() {
+        return ECName;
+    }
+
+    public void setECName(String ECName) {
+        this.ECName = ECName;
+    }
+
     public String getComplainStatus() {
         return ComplainStatus;
     }
@@ -66,6 +77,7 @@ public class EngineerComplainDTO {
                 ", ENName='" + ENName + '\'' +
                 ", ENCategory='" + ENCategory + '\'' +
                 ", EComplainId=" + EComplainId +
+                ", ECName=" + ECName +
                 ", ComplainStatus='" + ComplainStatus + '\'' +
                 '}';
     }

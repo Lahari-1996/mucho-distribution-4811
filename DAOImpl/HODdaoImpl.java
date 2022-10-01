@@ -61,7 +61,7 @@ public class HODdaoImpl implements HodDao {
             ps.setString(5,engineer.getENCategory());
 
             int ans=ps.executeUpdate();
-            while(ans>0)
+            if(ans>0)
             {
                 msg="Engineer registered sucessfully";
             }
@@ -144,16 +144,17 @@ public class HODdaoImpl implements HodDao {
     }
 
     @Override
-    public String assignProblem(int engId, String engName, String engCat, int complainId, String complainStatus) {
+    public String assignProblem(int engId, String engName, String engCat, int complainId,String complName, String complainStatus) {
         String msg="Can not assign";
 
         try (Connection con=DBUtil.provideConnection()){
-            PreparedStatement ps=con.prepareStatement("insert into EngineerComplainDTO values(?,?,?,?,?)");
+            PreparedStatement ps=con.prepareStatement("insert into EngineerComplainDTO values(?,?,?,?,?,?)");
             ps.setInt(1,engId);
             ps.setString(2,engName);
             ps.setString(3,engCat);
             ps.setInt(4,complainId);
-            ps.setString(5,complainStatus);
+            ps.setString(5,complName);
+            ps.setString(6,complainStatus);
 
             int ans=ps.executeUpdate();
             if(ans>0){

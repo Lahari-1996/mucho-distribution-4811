@@ -44,6 +44,7 @@ ENId int,
 ENName varchar(20),
 ENCategory varchar(30),
 EComplainId int,
+CName varchar(30),
 ComplainStatus varchar(30),
 foreign key (ENName) references Engineer(ENName),
 foreign key (EComplainId) references Complain(ComplainId)	
