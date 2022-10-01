@@ -13,9 +13,9 @@ public interface EmployeeDao {
 
     public String  registerEmployee(Employee employee);
     public String loginEmployee(String userName,String password);
-    public String  registerComplain(Complain complain);
-    public String viewComplainStatus();
-    public List<EngineerComplainDTO> viewAllComplain(int id) throws ComplainException;
+    public String  registerComplain(String cname,String ccat);
+    public List<EngineerComplainDTO> viewComplainStatus(int cid);
+    public List<Complain> viewAllComplain(String name) throws ComplainException;
     public String changePassword(int ENId,String password);
 
 

@@ -71,16 +71,15 @@ public class EmployeeDAOImpl implements EmployeeDao {
     }
 
     @Override
-    public String registerComplain(Complain complain) {
+    public String registerComplain(String cname,String ccat) {
 
         String msg="Registration Failed";
 
         try( Connection con= DBUtil.provideConnection()){
 
-            PreparedStatement ps=con.prepareStatement("insert into Complain values(?,?,?)");
-            ps.setInt(1,complain.getComplainId());
-            ps.setString(2,complain.getCName());
-            ps.setString(3,complain.getCatagory());
+            PreparedStatement ps=con.prepareStatement("insert into Complain(CName,Catagory) values(?,?)");
+            ps.setString(1,cname);
+            ps.setString(2,ccat);
 
 
             int ans=ps.executeUpdate();
@@ -98,33 +97,59 @@ public class EmployeeDAOImpl implements EmployeeDao {
     }
 
     @Override
-    public String viewComplainStatus() {
-        return null;
+    public List<EngineerComplainDTO>viewComplainStatus(int cid) {
+
+        List<EngineerComplainDTO>list=new ArrayList<>();
+        try(Connection con=DBUtil.provideConnection()) {
+
+            PreparedStatement ps=con.prepareStatement("select * from EngineerComplainStatus where ComplainId=?");
+            ps.setInt(1,cid);
+
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                int engid=rs.getInt("ENId");
+                String engname=rs.getString("ENName");
+                String engcat=rs.getString("ENCategory");
+                int compid=rs.getInt("ComplainId");
+                String compName=rs.getString("ECName");
+                String compstatus=rs.getString("ComplainStatus");
+
+                EngineerComplainDTO edto=new EngineerComplainDTO(engid,engname,engcat,compid,compName,compstatus);
+
+                list.add(edto);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return list;
+
     }
 
     @Override
-    public List<EngineerComplainDTO> viewAllComplain(int id) throws ComplainException {
-        List<EngineerComplainDTO>ecd=new ArrayList<>();
+    public List<Complain> viewAllComplain(String name) throws ComplainException {
+        List<Complain>complains=new ArrayList<>();
         try(Connection con=DBUtil.provideConnection()){
-            PreparedStatement ps=con.prepareStatement("select * from EngineerComplainDTO where EId=?");
-            ps.setInt(1,id);
+            PreparedStatement ps=con.prepareStatement("select * from Complain where CName=?");
+            ps.setString(1,name);
             ResultSet rs=ps.executeQuery();
             while (rs.next()){
-                int engId=rs.getInt("ENId");
-                String engName=rs.getString("ENName");
-                String engCat=rs.getString("ENCategory");
-                int compId= rs.getInt("EComplainId");
-                String compStatus=rs.getNString("ComplainStatus");
+                int compId=rs.getInt("ComplainId");
+                String compName=rs.getString("CName");
+                String compCat=rs.getString("Catagory");
 
-                EngineerComplainDTO ed=new EngineerComplainDTO(engId,engName,engCat,compId,compStatus);
-                ecd.add(ed);
+
+                Complain c=new Complain(compId,compName,compCat);
+                complains.add(c);
             }
 
         } catch (SQLException e) {
             throw new ComplainException("There is no complain");
         }
 
-        return ecd;
+        return complains;
     }
 
     @Override
