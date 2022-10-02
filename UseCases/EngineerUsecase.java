@@ -18,7 +18,7 @@ public class EngineerUsecase {
         Scanner sc=new Scanner(System.in);
         EngineerDao edi=new EngineerDAOImpl();
         System.out.println("Select any option to continue");
-        System.out.println("\n1. View Assigned Complain by HOD\n2. Update complain status\n3. View Attended Problems\n4. Change Password\n5. Exit");
+        System.out.println("\n1. View Assigned Complain by HOD\n2. Update complain status\n3. View Attended Problems\n4. Change Password\n5. Main Menu");
         int opt=sc.nextInt();
 
         switch (opt){

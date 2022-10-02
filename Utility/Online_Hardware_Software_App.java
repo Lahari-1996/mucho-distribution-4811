@@ -13,11 +13,14 @@ import java.util.Scanner;
 
 public class Online_Hardware_Software_App {
     public static void main(String[] args) {
+        System.out.println("Welcome to Hardware & Software Management World");
+
+        System.out.println("**************************************************");
         mainpage();
     }
     public static void mainpage() {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Welcome to Hardware & Software Management World");
+
         System.out.println("Select any option to continue");
         System.out.println
                 ("\n1. Login as HOD\n2. Login as an Engineer\n3. Register as an Employee\n4. Login as an Employee\n5. Exit");
@@ -56,7 +59,7 @@ public class Online_Hardware_Software_App {
 
             case 5:
                 System.out.println("Thank You for visiting");
-                System.out.println("******************************************************");
+                System.out.println("************************");
                 break;
 
         }
