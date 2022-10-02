@@ -18,7 +18,7 @@ public class EmployeeUsecase {
         Scanner sc=new Scanner(System.in);
         EmployeeDao em=new EmployeeDAOImpl();
         System.out.println("Select any option to continue");
-        System.out.println("\n1. Register Complain\n2. View complain status\n3. View All Probllems\n4. Change Password\n5. Exit");
+        System.out.println("\n1. Register Complain\n2. View complain status\n3. View All Probllems\n4. Change Password\n5. Main Menu");
         int opt=sc.nextInt();
 
         switch (opt){

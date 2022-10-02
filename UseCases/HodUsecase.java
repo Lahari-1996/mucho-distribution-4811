@@ -17,8 +17,7 @@ public class HodUsecase {
         Scanner sc=new Scanner(System.in);
         HodDao hd=new HODdaoImpl();
         System.out.println("Select any option to continue");
-        System.out.println("\n1. Register new Engineer\n2. List of all Engineers\n3. Delete an Engineer" +
-                "\n4. See all complains\n5. Assign problem to Engineer\n6. Exit");
+        System.out.println("\n1. Register new Engineer\n2. List of all Engineers\n3. Delete an Engineer\n4. See all complains\n5. Assign problem to Engineer\n6. Main Menu");
         int opt=sc.nextInt();
 
         switch (opt){
