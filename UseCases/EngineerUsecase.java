@@ -8,6 +8,7 @@ import DAO.EngineerDao;
 import DAOImpl.EngineerDAOImpl;
 import Exceptions.ComplainException;
 import Exceptions.EngineerException;
+import Utility.Online_Hardware_Software_App;
 
 import java.util.List;
 import java.util.Scanner;
@@ -74,6 +75,7 @@ public class EngineerUsecase {
                 break;
 
             case 5:
+                Online_Hardware_Software_App.mainpage();
                 break;
 
         }
