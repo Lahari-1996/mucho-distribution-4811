@@ -97,6 +97,7 @@ public class HodUsecase {
                 break;
 
             case 6:
+                Online_Hardware_Software_App.mainpage();
                 break;
 
 
