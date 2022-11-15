@@ -1,6 +1,16 @@
 Online Hardware and software support system
+***********************************************
+
+A console based project to get data from MySQL database and store data into the database.
 
  online platform for 24x7 access to the employees, the engineers, the Head of the Department and the administration.
  It Helps keeping IT staff productive with fast, accurate, remote technical support for your System environment. 
  It provides defect support for a broad range of Products running on System hardware.
  Here you can manage all your hardware and software related data.
+ 
+ Tech Stacks
+ ------------
+ -> MySQL
+ -> Java
+ -> JDBC
+ -> Hibernate
