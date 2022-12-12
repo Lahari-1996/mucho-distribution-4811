@@ -8,9 +8,9 @@ A console based project to get data from MySQL database and store data into the 
  It provides defect support for a broad range of Products running on System hardware.
  Here you can manage all your hardware and software related data.
  
- Tech Stacks
- ------------
- -> Spring Boot
+ ## Tech Stacks
+    ------------
+ - Spring Boot
  -> MySQL
  -> Java
  -> JDBC
