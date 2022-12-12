@@ -10,6 +10,7 @@ A console based project to get data from MySQL database and store data into the 
  
  Tech Stacks
  ------------
+ -> Spring Boot
  -> MySQL
  -> Java
  -> JDBC
