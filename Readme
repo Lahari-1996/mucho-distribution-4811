@@ -1,5 +1,5 @@
-# Online Hardware and software support system
-  ***********************************************
+### Online Hardware and software support system
+    ***********************************************
 
 A console based project to get data from MySQL database and store data into the database.
 
@@ -15,3 +15,10 @@ A console based project to get data from MySQL database and store data into the 
  -> Java
  -> JDBC
  -> Hibernate
+ 
+  # Features
+ 
+ - Login / Sign up
+ - Best deals
+ - Product details page
+ - Place orders
